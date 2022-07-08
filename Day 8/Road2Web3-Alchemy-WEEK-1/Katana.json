@@ -1,0 +1,41 @@
+{
+  "description": "This is my Katana NFT Collection, Chose Your Weapon",
+  "external_url": "https://twitter.com/0xZKP",
+  "image": "https://ipfs.filebase.io/ipfs/Qmbc1JPJXNYBTaMAtMxEQDwCcNt45TcNsUbMSjBmExL3D1",
+  "name": "Katana 001",
+  "attributes": [
+    {
+      "trait_type": "Metal",
+      "value": "Titanium"
+    },
+    {
+      "trait_type": "Handle",
+      "value": "Rubber"
+    },
+    {
+      "trait_type": "Blade Core",
+      "value": "Dragon"
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Tensile Strength (psi)",
+      "value": 100000
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Yield Strength (psi)",
+      "value": 91000
+    },
+    { "display_type": "number", "trait_type": "Weight (kg)", "value": 3 },
+    {
+      "display_type": "boost_number",
+      "trait_type": "Sharpness",
+      "value": 90
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Generation",
+      "value": 2
+    }
+  ]
+}
