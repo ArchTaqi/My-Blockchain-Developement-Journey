@@ -1,4 +1,4 @@
-# My-Blockchain-Development-Journey-2022
+# 🛣️ My-Blockchain-Development-Journey-2022
 
 
 In this program, I'm going to teach myself how to code and build 
