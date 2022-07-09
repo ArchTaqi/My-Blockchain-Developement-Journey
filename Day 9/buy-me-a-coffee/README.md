@@ -2,7 +2,7 @@
 
 link: https://buymeacoffee-solidity-defi-tipping-app.ronin0x.repl.co/
 
-This project demonstrates a Decentralized spin up of the popular Buy Me A Coffee is a website that creators, educators, entertainers, and all kinds of people use to create a landing page where anyone can send some amount of money as a thank you for their services.
+This project demonstrates a Decentralized spin up of the popular Buy Me A Coffee website that creators, educators, entertainers, and all kinds of people use to create a landing page where anyone can send some amount of money as a thank you for their services.
 
 This Dapp allows visitors to
 
