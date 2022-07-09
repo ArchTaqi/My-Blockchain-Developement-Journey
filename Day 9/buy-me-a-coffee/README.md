@@ -6,9 +6,8 @@ This project demonstrates a Decentralized spin up of the popular Buy Me A Coffee
 
 This Dapp allows visitors to
 
-# send you (fake) ETH as tips and
-
-# leave nice messages,
+* send you (fake) ETH as tips and
+* leave nice messages,
 
 using
 
