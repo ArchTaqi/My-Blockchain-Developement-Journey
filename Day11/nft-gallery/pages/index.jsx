@@ -44,7 +44,9 @@ const Home = () => {
       const api_key = "eYgRqZOd-EhygJr-tDtTWJZxChcAIC_9";
       const baseURL = `https://eth-mainnet.alchemyapi.io/nft/v2/${api_key}/getNFTsForCollection/`;
       const fetchURL = `${baseURL}?contractAddress=${collection}&withMetadata=${"true"}`;
-      const nfts = await fetch(fetchURL, requestOptions).then((data) => data.json());
+      const nfts = await fetch(fetchURL, requestOptions).then((data) =>
+        data.json()
+      );
       if (nfts) {
         console.log("NFTs in collection:", nfts);
         setNFTs(nfts.nfts);
@@ -55,7 +57,9 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center py-8 gap-y-3">
       <div className="flex flex-col w-full justify-center items-center gap-y-2">
-        <input disabled={fetchForCollection} className="w-2/5 bg-slate-100 py-2 px-2 rounded-lg text-gray-800 focus:outline-blue-300 disabled:bg-slate-50 disabled:text-gray-50"
+        <input
+          disabled={fetchForCollection}
+          className="w-2/5 bg-slate-100 py-2 px-2 rounded-lg text-gray-800 focus:outline-blue-300 disabled:bg-slate-50 disabled:text-gray-50"
           onChange={(e) => {
             setWalletAddress(e.target.value);
           }}
@@ -63,7 +67,8 @@ const Home = () => {
           type="text"
           placeholder="Add your wallet address"
         ></input>
-        <input className="w-2/5 bg-slate-100 py-2 px-2 rounded-lg text-gray-800 focus:outline-blue-300 disabled:bg-slate-50 disabled:text-gray-50"
+        <input
+          className="w-2/5 bg-slate-100 py-2 px-2 rounded-lg text-gray-800 focus:outline-blue-300 disabled:bg-slate-50 disabled:text-gray-50"
           onChange={(e) => {
             setCollectionAddress(e.target.value);
           }}
@@ -72,9 +77,17 @@ const Home = () => {
           placeholder="Add the collection address"
         ></input>
         <label className="text-gray-600">
-          <input className="mr-2" onChange={(e) => {setFetchForCollection(e.target.checked)}} type="checkbox" />
-        Fetch for collection</label>
-        <button className="disabled: bg-slate-500 text-white bg-blue-400 px-4 py-2 mt-3 rounded-lg w-1/5"
+          <input
+            className="mr-2"
+            onChange={(e) => {
+              setFetchForCollection(e.target.checked);
+            }}
+            type="checkbox"
+          />
+          Fetch for collection
+        </label>
+        <button
+          className="disabled: bg-slate-500 text-white bg-blue-400 px-4 py-2 mt-3 rounded-lg w-1/5"
           onClick={() => {
             if (fetchForCollection) {
               fetchNFTsForCollection();
@@ -87,13 +100,13 @@ const Home = () => {
         </button>
       </div>
       <div className="flex flex-wrap gap-y-12 mt-4 w-5/6 gap-x-2 justify-center">
-          {
-            NFTs.length && NFTs.map(nft => {
-              return (
-                <NFTCard nft={nft}></NFTCard>
-              )
-            })
-          }
+        {NFTs.length &&
+          NFTs.map((nft) => {
+            return <NFTCard nft={nft}></NFTCard>;
+          })}
+      </div>
+      <div className="text-sm text-blue-400">
+        <footer>-- built by 0xRonin --</footer>
       </div>
     </div>
   );
