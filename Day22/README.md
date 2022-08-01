@@ -1,11 +1,6 @@
-# Basic NFT Marketplace end to end
+# LENS PROTOCOL SOCIAL APP
+RoadToWeb3: Week 10
 
-This code is for the Tutorial [Build your own NFT Marketplace from Scratch](https://docs.alchemy.com/alchemy/) built by [alchemy.com](https://alchemy.com)
+Orion Social app: https://orion-lemon.vercel.app/
 
-To set up the repository and run the marketplace locally, run the below
-```bash
-git clone https://github.com/OMGWINNING/NFT-Marketplace-Tutorial
-cd NFT-Marketplace-Tutorial
-npm install
-npm start
-```
+A social app that fetches .lens handles using GraphQL.
