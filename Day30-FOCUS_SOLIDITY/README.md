@@ -4,5 +4,6 @@ After covering the basics of [JavaScript](https://www.codecademy.com/learn/intro
 
 This folder will have day-wise
 
+- Solidity Concepts
 - Solidity Codes
 - Resources for further reading
