@@ -1,4 +1,6 @@
-# Day 1
+# Day :one:
+
+:surfer: Surfing through the Smart Contract Programmer [Solidity Playlist](https://www.youtube.com/watch?v=xv9OmztShIw&list=PLO5VPQH6OWdVQwpQfw9rZ67O6Pjfo6q-p).
 
 ## License Identifier
 
