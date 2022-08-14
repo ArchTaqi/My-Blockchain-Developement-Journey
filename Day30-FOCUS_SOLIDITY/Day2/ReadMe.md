@@ -56,3 +56,52 @@ contract LocalVariables {
 ```
 
 Once the contract is deployed you can only find the State Variables ```i``` and ```b``` and the data stored still remains in the blockchain and persists even after the function is done executing, However the Local Variables no longer exists.
+
+### Global Variables
+- Global variables store the informations such as blockchain, transactions and the account that sends the transactions.
+
+```solidity
+contract GlobalVariables {
+  function globalVars() external view returns(address, uint, uint){
+      address sender = msg.sender;
+      uint timestamp = block.timestamp;
+      uint blockNum = block.number;
+      return (sender, timestamp, blockNum);
+  }
+}
+
+```
+
+- ```view``` is like pure, it is a read-only function. Unlike pure functions, view functions can read data from state variables and global variables.
+- ```msg.sender``` is a global variable that stores the addresss that calls this function, its datatype is address.
+- ```block.timestamp``` stores the unix timestamp of when this fucntion was called, its datatype is unit.
+- ```block.number``` stores the current [block number](https://www.youtube.com/watch?v=_160oMzblY8&t=2s), its datatype is uint.
+- ```sender, timestamp, blockNum``` are the defined Global Variables.
+
+### Difference between View and Pure functions
+
+The main difference is that view functions can read data from the blockchain while pure functions do not read anything from the blockchain.
+
+```solidity
+contract ViewAndPureFunctions {
+  uint public num;
+  function viewFunc() external view returns(uint){
+      return num;
+  }
+  
+  function pureFunc() external pure returns(uint){
+    return 1;
+  }
+  // example of view function
+  function addToNum(uint x) external view returns(uint){
+    return num + x;
+  }
+  // example of pure function
+  function add(uint a, uint b) external pure returns(uint){
+    return a + b;
+  }
+ }
+
+```
+- view function doesn't modify any state variables or write anything to the blockchain, making it a ```read-only``` function.
+- pure function is a ```read-only``` function, it does not modify anything on the blockchain. And also ```does not read``` any data from the blockchain such as a state variable any information from the blockchain.
