@@ -105,3 +105,33 @@ contract ViewAndPureFunctions {
 ```
 - view function doesn't modify any state variables or write anything to the blockchain, making it a ```read-only``` function.
 - pure function is a ```read-only``` function, it does not modify anything on the blockchain. And also ```does not read``` any data from the blockchain such as a state variable any information from the blockchain.
+
+
+### :star: Simple Counter Dapp
+This smart contract increments and decrements count;
+
+```solidity
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+contract Counter {
+    uint public count;
+
+    function inc() external {
+        count += 1;
+    }
+
+    function dec() external {
+        count -= 1;
+    }
+}
+```
+- we create a state variable called ```count``` and declare it ```public``` which means we can access the state variable after the contract is deployed.
+- there are two functions; ```inc()``` to increment the count and ```dec()``` to decrement the count.
+- they are both ```external``` which means we will be able to call the functions after the contract is deployed.
+- these functions are neither view nor pure functions, they both are ```write``` functions because we are going to be modifying the count state variable.
+
+run the program on [Remix IDE](https://remix.ethereum.org/) to check your code.
+
+Congratulations :tada: you have created a Counter dapp!
