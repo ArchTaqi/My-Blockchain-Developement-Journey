@@ -28,7 +28,7 @@ contract Constatns {
 }
 
 contract Var {
-  address public MY_ADDRESS = 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045; // not constant
+  address public my_address = 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045; // not using constant keyword
 }
 
 ```
