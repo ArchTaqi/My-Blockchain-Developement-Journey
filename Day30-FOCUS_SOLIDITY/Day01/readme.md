@@ -70,7 +70,7 @@ Congratulations, you have written your first Smart Contract!
 
 The data types in solidity are of two types 
 - Values: It means the data stores a value. ex: int, string, bool etc.
-- references: stores a reference to where the actual data is stored. ex: array, object, etc.
+- references: stores a reference to where the actual data is stored. ex: array, mapping, etc.
 
 ### Common Value types
 
