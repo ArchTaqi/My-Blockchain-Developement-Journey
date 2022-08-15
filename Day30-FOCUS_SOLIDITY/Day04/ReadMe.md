@@ -72,24 +72,29 @@ contract Error {
 
 
 ### Custom Errors
-Custom errors are used to save gas. The longer the error message the more gas it will use. Errors can only be used with revert.
+Custom errors are used to save gas. The longer the error message the more gas it will use. Custom errors can only be used with revert.
 
 ```solidity
 
 contract Error {
 
-  error MyError(address cal);
+  error MyError(address caller, uint i);
   
-  function testCustomError(uint _i) public pure {
+  function testCustomError(uint _i) public view {
     if(_i > 10) {
-      revert MyError();
+      revert MyError(msg.sender, _i);
     }
   }
   
 }
 
 ```
-
+- We can log the data inside the custom error
+- Here we log the caller of the function in the input that was passed in.
+- The first parameter inside ```MyError()``` is named ```caller``` with type ```address```.
+- The second parameter in the value of input i passed by the caller.
+- Inside the custom error that is thrown/reverted, ```msg.sender``` is the caller and value of i thrown is ```_i```.
+- ```msg.sender``` is a global variable, so we need to change ```pure``` to ```view``` because pure only reads local variables.
 
 
 
