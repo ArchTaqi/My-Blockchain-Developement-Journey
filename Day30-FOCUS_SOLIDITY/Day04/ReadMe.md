@@ -96,7 +96,115 @@ contract Error {
 - Inside the custom error that is thrown/reverted, ```msg.sender``` is the caller and value of i thrown is ```_i```.
 - ```msg.sender``` is a global variable, so we need to change ```pure``` to ```view``` because pure only reads local variables.
 
+## Function Modifier
+Function Modifier allows us to reuse code. It can wrap a function in such a way that some code are executed and then the actual function is executed and afterwards more code is executed.
+
+### Basic Function Modifier
+```solidity
+
+// example without using modifier 
+contract FunctionModifier {
+
+  bool public paused;
+  uint public count;
+  
+  function setPause(bool _paused) external {
+    paused = _paused;
+  }
+  
+  function inc() external {
+    require(!paused, "paused");
+    count += 1;
+  }
+  
+  function dec() external {
+    require(!paused, "paused");
+    count -= 1;
+  }
+}
+
+```
+- The functions ```inc()``` and ```dec()``` can only be called if the contract is not paused.
 
 
+Using the function modifier we can put the ```require``` statement in a single place and reuse the logic.
+```solidity
+
+// example using modifier 
+contract FunctionModifier {
+
+  bool public paused;
+  uint public count;
+  
+  function setPause(bool _paused) external {
+    paused = _paused;
+  }
+  
+  modifier whenNotPaused() {
+    require(!paused, "paused");
+    _;
+  }
+  
+  function inc() external whenNotPaused {
+    count += 1;
+  }
+  
+  function dec() external whenNotPaused {
+    count -= 1;
+  }
+}
+
+```
+- start with ```modifier``` then nameOfTheModifier().
+- within the curly braces we write the logic for check, here we used ```require```.
+- the ```_;``` tells solidity to call the actual function that modifier has wrapped.
+- the last step is to declare the modifier in the function signature by appending it. 
+> function inc( ) external ```whenNotPaused``` { } // same with dec( )
+
+### Function Modifiers with Input 
+
+```solidity
+// code 
+
+modifier cap(uint _x) {
+  require(_x < 100, "x >=100");
+  _;
+}
+
+function incBy(uint _x) external whenNotPaused cap(_x) {
+  count += x;
+}
+
+// code
+
+```
+- the function ```incBy()``` will only increment the count if the contract is ```not paused``` and also do a check on the input, here it makes sure the input is less than 100. This is how you pass inputs in modifier.
+
+### Function Modifiers sandwiching a function
+This means some code will be executed inside the function modifier, then the actual function will be called and afterwards it will execute more inside the function modifier.
+
+```solidiity
+
+// code
+
+modifier sandwich() {
+
+  // some code
+  count += 10;
+  _;
+  // more code
+  count *= 2;
+}
+
+function foo() external sandwich {
+  count += 1;
+}
+ 
+
+// code
+```
+- when we call ```foo()``` it will first execute the ```sandwich``` modifier increasing the count by 10, then call the main function foo() and increment the count by 1 and then finally multiply the count by 2.
+
+## Constructors
 
 
