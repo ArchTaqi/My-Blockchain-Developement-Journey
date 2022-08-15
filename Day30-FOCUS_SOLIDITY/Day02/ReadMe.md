@@ -45,7 +45,7 @@ contract LocalVariables {
     uint a = 777;
     bool f = false;
     // code
-    x += 334;
+    a += 334;
     f = true;
     
     i = 21000000;
