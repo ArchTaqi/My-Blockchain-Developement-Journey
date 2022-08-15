@@ -103,8 +103,8 @@ contract ViewAndPureFunctions {
  }
 
 ```
-- view function doesn't modify any state variables or write anything to the blockchain, making it a ```read-only``` function.
-- pure function is a ```read-only``` function, it does not modify anything on the blockchain. And also ```does not read``` any data from the blockchain such as a state variable any information from the blockchain.
+- view function doesn't modify any state variables or write anything to the blockchain, making it a ```read-only``` function reading state variables, local and global variable.
+- pure function is a ```read-only``` function, it can ```read only``` local variables, it does not modify anything on the blockchain. And also ```does not read``` any data from the blockchain such as a state variable or any information from the blockchain.
 
 
 ### :star: Simple Counter Dapp
