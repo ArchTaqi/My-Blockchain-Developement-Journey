@@ -19,12 +19,12 @@ Require is mostly used to validate inputs, and for access control, which means c
 contract Error {
   function testRequire(uint _i) public pure {
     require( _i <= 10, "i > 10");
-    // code 
+    // more code 
   }
 }
 
 ```
-- require(```condition```, ```"error message"```). If the condition is not meet it throws an error message. If it [asses it goes to more code.
+- require(```condition```, ```"error message"```). If the condition is not meet it throws an error message. If it passes it goes to more code.
 
 ### Revert
 Revert is a better option if the conditions are nested and there are a lot of if statements.
@@ -89,10 +89,10 @@ contract Error {
 }
 
 ```
-- We can log the data inside the custom error
+- We can log the data inside the custom error.
 - Here we log the caller of the function in the input that was passed in.
 - The first parameter inside ```MyError()``` is named ```caller``` with type ```address```.
-- The second parameter in the value of input i passed by the caller.
+- The second parameter is the value of input i passed by the caller.
 - Inside the custom error that is thrown/reverted, ```msg.sender``` is the caller and value of i thrown is ```_i```.
 - ```msg.sender``` is a global variable, so we need to change ```pure``` to ```view``` because pure only reads local variables.
 
@@ -164,8 +164,6 @@ contract FunctionModifier {
 ### Function Modifiers with Input 
 
 ```solidity
-// code 
-
 modifier cap(uint _x) {
   require(_x < 100, "x >=100");
   _;
@@ -174,19 +172,13 @@ modifier cap(uint _x) {
 function incBy(uint _x) external whenNotPaused cap(_x) {
   count += x;
 }
-
-// code
-
 ```
 - the function ```incBy()``` will only increment the count if the contract is ```not paused``` and also do a check on the input, here it makes sure the input is less than 100. This is how you pass inputs in modifier.
 
 ### Function Modifiers sandwiching a function
 This means some code will be executed inside the function modifier, then the actual function will be called and afterwards it will execute more inside the function modifier.
 
-```solidiity
-
-// code
-
+```solidity
 modifier sandwich() {
 
   // some code
@@ -199,10 +191,8 @@ modifier sandwich() {
 function foo() external sandwich {
   count += 1;
 }
- 
-
-// code
 ```
+
 - when we call ```foo()``` it will first execute the ```sandwich``` modifier increasing the count by 10, then call the main function foo() and increment the count by 1 and then finally multiply the count by 2.
 
 ## Constructors
