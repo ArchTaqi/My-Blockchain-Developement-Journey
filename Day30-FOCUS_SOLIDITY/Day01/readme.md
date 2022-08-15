@@ -90,8 +90,8 @@ contract ValueTypes {
   bytes32 public b32 = 0x000000000000000000000000697cb3a91d22f4cb39aeea7eb4a410fedd0bbe06
 }
 ```
-- ```bool``` boolean, stores either true(1) or false(1).
-- ```uint``` usigned integer stores zero or positive numbers.
+- ```bool``` boolean, stores either true(1) or false(0).
+- ```uint``` unsigned integer stores zero or positive numbers.
 - ```int``` integers stored negative, zero and positive numbers.
 - ```min/max value``` finds what the minimum or maximum value of a datatype is.
 - ```address``` is used to store the value of any address.
@@ -124,6 +124,6 @@ contract FunctionIntro {
 - ```(input_datatype input_name, input_datatype input_name, ...)``` The function contains the input datatype and the name of the input inside the paranthesis.
 - ```external``` when we deploy the contract we will be able to call this function.
 - ```pure``` means this function is read only, it does not write anything to the blockchain.
-- ```returns()``` declares the type of output returned.
+- ```returns()``` declares the type of output returned which is written inside the paranthesis.
 
 <div align=center><a href="https://github.com/0xronin/My-Blockchain-Developement-Journey/tree/main/Day30-FOCUS_SOLIDITY/Day02">Day 2 >></a></div>
